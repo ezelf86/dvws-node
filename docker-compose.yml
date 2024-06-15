@@ -8,12 +8,14 @@ services:
             MYSQL_ROOT_PASSWORD: mysecretpassword
             MYSQL_DATABASE: dvws_sqldb
     web:
-        image: snoopysecurity/dvws-node:latest
+        image: ezelf86/dvws-node:latest
         build: .
         ports:
         - "80:80"
         - "4000:4000"          
-        - "9090:9090"        
+        - "9090:9090"  
+        volumes:
+        - .:/home/dvws-node2
         command: sh -c "/wait && node startup_script.js && npm start"
         environment:
             WAIT_HOSTS: dvws-mysql:3306, dvws-mongo:27017

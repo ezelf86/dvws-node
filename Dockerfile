@@ -1,5 +1,7 @@
 FROM nikolaik/python-nodejs:python3.7-nodejs16-slim
 RUN mkdir /home/dvws-node
+RUN mkdir /home/dvws-node2
+
 WORKDIR /home/dvws-node
 RUN apt-get update && apt-get install -y git build-essential --no-install-recommends
 COPY . .
